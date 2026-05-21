@@ -1,0 +1,7 @@
+[package]
+name = "viontin-zero"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+viontin = { path = "../../repos/framework/crates/viontin" }

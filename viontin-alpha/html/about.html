@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — Viontin</title>
+<link rel="stylesheet" href="/assets/tailwind.css">
+<style>.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;transition:all .2s}.card:hover{border-color:#a78bfa;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}</style>
+</head>
+<body class="bg-gray-50 text-gray-800" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+<nav class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+<a href="/" class="text-xl font-bold text-white">Viontin<span class="text-violet-400">.</span></a>
+<div class="ml-auto flex items-center gap-1">
+<a href="/" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium">Home</a>
+<a href="/features" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium">Features</a>
+<a href="/about" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium">About</a>
+<a href="/blog" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium">Blog</a>
+<a href="/contact" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;padding:.5rem 1.2rem;border-radius:999px;font-weight:600;font-size:.875rem;text-decoration:none">Contact</a>
+</div>
+</div>
+</nav>
+
+<section class="max-w-4xl mx-auto px-6 pt-20 pb-16">
+<h1 class="text-4xl font-bold mb-8">About Viontin</h1>
+<div class="card mb-8"><h2 class="text-2xl font-bold mb-4">Our Philosophy</h2><p class="text-gray-500 mb-6 leading-relaxed">Zero to One, Scale-up Easily. Viontin grows with your project, from prototype to production fleet — one framework, any scale.</p>
+<div class="grid grid-cols-2 gap-6">
+<div><h3 class="font-bold text-lg mb-2 text-violet-600">No DSL</h3><p class="text-sm text-gray-500">Pure Rust — functions, structs, and traits. No custom language, no code generation.</p></div>
+<div><h3 class="font-bold text-lg mb-2 text-blue-500">Additive</h3><p class="text-sm text-gray-500">Each level adds guardrails. Level 5 can do everything Level 0 can.</p></div>
+<div><h3 class="font-bold text-lg mb-2 text-violet-600">Detection</h3><p class="text-sm text-gray-500">Framework infers scale from directory structure. No config files to maintain.</p></div>
+<div><h3 class="font-bold text-lg mb-2 text-blue-500">Escape Hatches</h3><p class="text-sm text-gray-500">Every constraint can be overridden. Sensible defaults without lock-in.</p></div>
+</div></div>
+<div class="card mb-8"><h2 class="text-2xl font-bold mb-4">The 6 Levels</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-violet-600" style="min-width:2rem">0</span><div><h3 class="font-bold">Zero</h3><p class="text-sm text-gray-500">Single file, zero config. One developer.</p></div></div>
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-blue-500" style="min-width:2rem">1</span><div><h3 class="font-bold">Indie</h3><p class="text-sm text-gray-500">Modular structure, auto docs. 1-2 developers.</p></div></div>
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-violet-600" style="min-width:2rem">2</span><div><h3 class="font-bold">Team</h3><p class="text-sm text-gray-500">Domain boundaries, arch checking. 3-8 developers.</p></div></div>
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-blue-500" style="min-width:2rem">3</span><div><h3 class="font-bold">Enterprise</h3><p class="text-sm text-gray-500">Microservices, event contracts. 8-50 developers.</p></div></div>
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-violet-600" style="min-width:2rem">4</span><div><h3 class="font-bold">Fleet</h3><p class="text-sm text-gray-500">K8s orchestration, observability. 50-200 developers.</p></div></div>
+<div class="flex items-start gap-4 p-4 bg-gray-50 rounded"><span class="font-bold text-lg text-blue-500" style="min-width:2rem">5</span><div><h3 class="font-bold">Mesh</h3><p class="text-sm text-gray-500">Multi-region, global scale. 200+ developers.</p></div></div>
+</div></div>
+<div class="card"><h2 class="text-2xl font-bold mb-4">Technical Decisions</h2>
+<div class="space-y-6">
+<div><h3 class="font-bold text-violet-600">Why std::net instead of tokio?</h3><p class="text-sm text-gray-500 mt-1">std::net::TcpListener and thread-per-connection. Zero async runtime dependency. Add tokio at the application level if needed.</p></div>
+<div><h3 class="font-bold text-blue-500">Why no proc macros?</h3><p class="text-sm text-gray-500 mt-1">Declarative macros avoid compile-time overhead. No reflection, no code generation.</p></div>
+<div><h3 class="font-bold text-violet-600">Why Laravel-inspired patterns?</h3><p class="text-sm text-gray-500 mt-1">Service providers, facades, event dispatchers — proven patterns adapted to Rust's type system.</p></div>
+</div></div>
+</section>
+
+<footer class="bg-gray-900 border-t border-gray-800 py-8">
+<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+<p class="text-gray-500 text-sm">&copy; 2026 Viontin. Zero to One, Scale-up Easily.</p>
+<a href="https://github.com/viontin/framework" class="text-gray-400 text-sm hover:text-violet-400 transition">GitHub</a>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Features</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#f8f9fa;color:#1a1a2e;line-height:1.6}
+nav{background:#1a1a2e;padding:1rem 2rem;display:flex;gap:2rem;max-width:960px;margin:0 auto}
+nav a{color:#a0a0c0;text-decoration:none;font-weight:500}
+nav a:hover{color:#fff}
+nav .brand{color:#fff;font-weight:700;font-size:1.2rem;margin-right:auto}
+main{max-width:960px;margin:3rem auto;padding:0 2rem}
+h1{font-size:2rem;margin-bottom:1.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.card{background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card h2{font-size:1.1rem;color:#7c3aed;margin-bottom:.5rem}
+.card p{color:#666;font-size:.9rem}
+footer{text-align:center;padding:2rem;color:#888;font-size:.85rem;margin-top:3rem;border-top:1px solid #ddd}
+</style>
+</head>
+<body>
+<nav><span class="brand">Viontin</span><a href="/">Home</a><a href="/features">Features</a><a href="/ecosystems">Ecosystems</a></nav>
+<main>
+<h1>Features</h1>
+<div class="grid">
+<div class="card"><h2>Zero Config</h2><p>Single binary, no DSL. Start with one file, scale to fleets.</p></div>
+<div class="card"><h2>6 Levels of Scale</h2><p>Zero to Mesh — progressive architecture that adapts to your project.</p></div>
+<div class="card"><h2>CLI Toolkit</h2><p>Artisan-inspired command system with styled output and prompts.</p></div>
+<div class="card"><h2>Built-in HTTP</h2><p>Zero-dependency server with file-based routing.</p></div>
+<div class="card"><h2>Full ORM</h2><p>Multi-driver ORM with migrations, schema builder, and relations.</p></div>
+<div class="card"><h2>Ecosystem</h2><p>Caching, sessions, mail, queues, events — all built-in.</p></div>
+</div>
+</main>
+<footer>Built with Viontin Zero</footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "viontin-alpha",
+  "env": "local",
+  "debug": true,
+  "url": "http://localhost:3000",
+  "locale": "en",
+  "timezone": "UTC"
+}

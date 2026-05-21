@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Features — Viontin</title>
+<link rel="stylesheet" href="/assets/tailwind.css">
+<style>.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:2rem;transition:all .2s}.card:hover{border-color:#a78bfa;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);transform:translateY(-2px)}.icon-box{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}</style>
+</head>
+<body class="bg-gray-50 text-gray-800" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+<nav class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+<a href="/" class="text-xl font-bold text-white">Viontin<span class="text-violet-400">.</span></a>
+<div class="ml-auto flex items-center gap-1">
+<a href="/" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium transition">Home</a>
+<a href="/features" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium transition">Features</a>
+<a href="/about" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium transition">About</a>
+<a href="/blog" class="text-gray-400 hover:text-white hover:bg-gray-800 px-3 py-2 rounded text-sm font-medium transition">Blog</a>
+<a href="/contact" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;padding:.5rem 1.2rem;border-radius:999px;font-weight:600;font-size:.875rem;text-decoration:none">Contact</a>
+</div>
+</div>
+</nav>
+
+<section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+<h1 class="text-4xl font-bold text-center mb-4">Everything You Need</h1>
+<p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto">A complete application toolkit. No assembling frameworks from dozens of crates.</p>
+<div class="grid grid-cols-3 gap-6">
+<div class="card"><div class="icon-box" style="background:#ede9fe;color:#7c3aed">&#9889;</div><h3 class="font-bold text-lg mb-2">Zero Config</h3><p class="text-gray-500 text-sm">Single binary, no DSL. Start with one file, scale to any architecture.</p></div>
+<div class="card"><div class="icon-box" style="background:#dbeafe;color:#2563eb">&#128214;</div><h3 class="font-bold text-lg mb-2">6 Levels of Scale</h3><p class="text-gray-500 text-sm">Zero to Mesh — progressive architecture that adapts automatically.</p></div>
+<div class="card"><div class="icon-box" style="background:#fef3c7;color:#d97706">&#127912;</div><h3 class="font-bold text-lg mb-2">CLI Toolkit</h3><p class="text-gray-500 text-sm">33 commands with interactive prompts. Laravel ergonomics for Rust.</p></div>
+<div class="card"><div class="icon-box" style="background:#e0f2fe;color:#0891b2">&#127760;</div><h3 class="font-bold text-lg mb-2">HTTP Server</h3><p class="text-gray-500 text-sm">Zero-dependency TCP server. No tokio, no hyper, no axum.</p></div>
+<div class="card"><div class="icon-box" style="background:#ecfdf5;color:#059669">&#128451;</div><h3 class="font-bold text-lg mb-2">Multi-Driver ORM</h3><p class="text-gray-500 text-sm">PostgreSQL, MySQL, SQLite. Schema builder, migrations, relations.</p></div>
+<div class="card"><div class="icon-box" style="background:#fce7f3;color:#db2777">&#129518;</div><h3 class="font-bold text-lg mb-2">Plugin System</h3><p class="text-gray-500 text-sm">WASM-based gems with registry and validation.</p></div>
+<div class="card"><div class="icon-box" style="background:#f5f3ff;color:#7c3aed">&#9881;</div><h3 class="font-bold text-lg mb-2">Auth &amp; Security</h3><p class="text-gray-500 text-sm">Multi-guard auth with BasicAuth, sessions, CSRF, rate limiting.</p></div>
+<div class="card"><div class="icon-box" style="background:#fff7ed;color:#c2410c">&#128230;</div><h3 class="font-bold text-lg mb-2">Caching</h3><p class="text-gray-500 text-sm">Memory, file, and null cache drivers. Remember/pull helpers.</p></div>
+<div class="card"><div class="icon-box" style="background:#f0fdf4;color:#16a34a">&#128231;</div><h3 class="font-bold text-lg mb-2">Mail &amp; Notifications</h3><p class="text-gray-500 text-sm">Envelope builder, log/array transports, multi-channel delivery.</p></div>
+<div class="card"><div class="icon-box" style="background:#fef2f2;color:#dc2626">&#128197;</div><h3 class="font-bold text-lg mb-2">Queue &amp; Scheduler</h3><p class="text-gray-500 text-sm">Sync queue for dev, pluggable for prod. Cron-based scheduling.</p></div>
+<div class="card"><div class="icon-box" style="background:#f0f9ff;color:#0284c7">&#128260;</div><h3 class="font-bold text-lg mb-2">Events</h3><p class="text-gray-500 text-sm">Publish/subscribe dispatcher with listener registration.</p></div>
+<div class="card"><div class="icon-box" style="background:#fdf4ff;color:#c026d3">&#128200;</div><h3 class="font-bold text-lg mb-2">Architecture Testing</h3><p class="text-gray-500 text-sm">Domain boundaries, naming conventions, ArchChecker.</p></div>
+</div>
+</section>
+
+<footer class="bg-gray-900 border-t border-gray-800 py-8">
+<div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+<p class="text-gray-500 text-sm">&copy; 2026 Viontin. Zero to One, Scale-up Easily.</p>
+<a href="https://github.com/viontin/framework" class="text-gray-400 text-sm hover:text-violet-400 transition">GitHub</a>
+</div>
+</footer>
+</body>
+</html>

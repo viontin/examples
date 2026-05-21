@@ -1,0 +1,14 @@
+content = [
+    "src/**/*.rs",
+    "html/**/*.html",
+]
+
+[output]
+path = "assets/tailwind.css"
+minify = false
+
+[core]
+safelist = []
+
+[theme]
+colors = { brand = "#3b82f6", accent = "#8b5cf6" }

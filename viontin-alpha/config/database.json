@@ -1,0 +1,10 @@
+{
+  "default": "sqlite",
+  "connections": {
+    "sqlite": {
+      "driver": "sqlite",
+      "database": "database.sqlite",
+      "prefix": ""
+    }
+  }
+}

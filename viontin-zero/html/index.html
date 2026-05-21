@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viontin — Progressive Meta-Framework for Rust</title>
+<style>
+:root {
+  --purple: #7c3aed;
+  --purple-dark: #5b21b6;
+  --purple-light: #a78bfa;
+  --blue: #3b82f6;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--slate-800); background: var(--slate-50); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+
+nav { background: var(--slate-900); border-bottom: 1px solid var(--slate-800); position: sticky; top: 0; z-index: 50; }
+.nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; height: 64px; }
+.nav-brand { font-size: 1.25rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -.02em; }
+.nav-brand span { color: var(--purple-light); }
+.nav-links { margin-left: auto; display: flex; gap: .25rem; }
+.nav-links a { color: var(--slate-400); text-decoration: none; padding: .5rem 1rem; border-radius: 8px; font-size: .9rem; font-weight: 500; transition: all .15s; }
+.nav-links a:hover { color: #fff; background: var(--slate-800); }
+.nav-links a.active { color: #fff; background: var(--slate-800); }
+
+.hero { text-align: center; padding: 6rem 2rem 4rem; max-width: 800px; margin: 0 auto; }
+.hero-badge { display: inline-block; background: rgba(124,58,237,.1); color: var(--purple-light); padding: .35rem 1rem; border-radius: 999px; font-size: .85rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid rgba(124,58,237,.2); }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fff 0%, var(--purple-light) 50%, var(--blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -.03em; }
+.hero p { font-size: 1.2rem; color: var(--slate-400); max-width: 640px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.8rem; border-radius: 999px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all .15s; cursor: pointer; border: none; }
+.btn-primary { background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; box-shadow: 0 4px 14px rgba(124,58,237,.35); }
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(124,58,237,.45); transform: translateY(-1px); }
+.btn-secondary { background: var(--slate-800); color: var(--slate-200); border: 1px solid var(--slate-700); }
+.btn-secondary:hover { background: var(--slate-700); color: #fff; }
+
+.section { max-width: 1120px; margin: 0 auto; padding: 5rem 2rem; }
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-header h2 { font-size: 2rem; font-weight: 700; margin-bottom: .75rem; letter-spacing: -.02em; }
+.section-header p { color: var(--slate-500); font-size: 1.1rem; max-width: 560px; margin: 0 auto; }
+
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.feature-card { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius); padding: 2rem; transition: all .2s; }
+.feature-card:hover { border-color: var(--purple-light); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.feature-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+.feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: .5rem; }
+.feature-card p { font-size: .9rem; color: var(--slate-500); line-height: 1.6; }
+
+.levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.level-item { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+.level-item .num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: .5rem; }
+.level-item .name { font-weight: 600; font-size: .9rem; }
+.level-item .desc { font-size: .8rem; color: var(--slate-400); margin-top: .25rem; }
+
+.cta-section { text-align: center; padding: 5rem 2rem; background: linear-gradient(135deg, var(--slate-900), #0f0f1a); margin-top: 2rem; }
+.cta-section h2 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+.cta-section p { color: var(--slate-400); max-width: 480px; margin: 0 auto 2rem; }
+
+footer { background: var(--slate-900); border-top: 1px solid var(--slate-800); padding: 2rem 2rem; }
+.footer-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+footer p { color: var(--slate-500); font-size: .85rem; }
+footer a { color: var(--slate-400); text-decoration: none; font-size: .85rem; }
+footer a:hover { color: var(--purple-light); }
+
+@media (max-width: 640px) {
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .section { padding: 3rem 1.5rem; }
+  .nav-inner { padding: 0 1rem; }
+  .nav-links a { padding: .5rem .75rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a href="/" class="nav-brand">Viontin<span>.</span></a>
+<div class="nav-links">
+<a href="/" class="active">Home</a>
+<a href="/features">Features</a>
+<a href="/ecosystems">Ecosystems</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-badge">v0.1.0 — Zero to One, Scale-up Easily</div>
+<h1>One Framework.<br>Any Architecture.</h1>
+<p>From a single-file prototype to a multi-region fleet — Viontin adapts to your project's scale without changing the framework. Zero DSL, pure Rust.</p>
+<div class="hero-actions">
+<a href="/features" class="btn btn-primary">Explore Features</a>
+<a href="https://github.com/viontin/framework" class="btn btn-secondary">GitHub →</a>
+</div>
+</section>
+
+<section class="section" style="padding-top:0">
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon" style="background:#ede9fe;color:#7c3aed">⚡</div>
+<h3>Zero Config</h3>
+<p>Single binary, no DSL, no boilerplate. Start with one file, scale to any architecture without changing the framework.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#dbeafe;color:#2563eb">📐</div>
+<h3>6 Levels of Scale</h3>
+<p>Progressive architecture from Zero to Mesh. Each level adds guardrails automatically detected from your project structure.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#fef3c7;color:#d97706">🎨</div>
+<h3>CLI Toolkit</h3>
+<p>Artisan-inspired command system with styled output, interactive prompts, spinners, and progress bars — Laravel ergonomics for Rust.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#e0f2fe;color:#0891b2">🌐</div>
+<h3>Built-in HTTP</h3>
+<p>Zero-dependency HTTP server with file-based routing. No tokio, no hyper, no axum — just Rust's standard library.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#ecfdf5;color:#059669">🗄️</div>
+<h3>Multi-Driver ORM</h3>
+<p>Full ORM with migrations, schema builder, and relations. PostgreSQL, MySQL, and SQLite support out of the box.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon" style="background:#fce7f3;color:#db2777">🧩</div>
+<h3>Plugin System</h3>
+<p>Extend with gems — integrations, platforms, databases, and dev tools. WASM-based dynamic loading for third-party plugins.</p>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:var(--slate-100);padding:5rem 2rem">
+<div class="section-header">
+<h2>The Spectrum</h2>
+<p>Six levels of architectural maturity. Each level adds constraints without breaking the previous one.</p>
+</div>
+<div class="levels" style="max-width:1120px;margin:0 auto">
+<div class="level-item"><div class="num">0</div><div class="name">Zero</div><div class="desc">Single file</div></div>
+<div class="level-item"><div class="num">1</div><div class="name">Indie</div><div class="desc">Modular structure</div></div>
+<div class="level-item"><div class="num">2</div><div class="name">Team</div><div class="desc">Domain boundaries</div></div>
+<div class="level-item"><div class="num">3</div><div class="name">Enterprise</div><div class="desc">Microservices</div></div>
+<div class="level-item"><div class="num">4</div><div class="name">Fleet</div><div class="desc">K8s orchestration</div></div>
+<div class="level-item"><div class="num">5</div><div class="name">Mesh</div><div class="desc">Multi-region</div></div>
+</div>
+</section>
+
+<section class="cta-section">
+<h2>Ready to Build?</h2>
+<p>Get started in seconds. No runtime, no DSL, no configuration — just Rust.</p>
+<div class="hero-actions">
+<a href="#" class="btn btn-primary">cargo install viontin</a>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<p>© 2026 Viontin. Built with Rust.</p>
+<a href="https://github.com/viontin/framework">GitHub</a>
+</div>
+</footer>
+</body>
+</html>
