@@ -765,12 +765,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "viontest"
+version = "0.1.0"
+
+[[package]]
 name = "viontin"
 version = "0.1.0"
 dependencies = [
  "glob",
  "viontin-framework",
  "viontin-gems",
+ "viontin-macros",
  "viontin-tui",
 ]
 
@@ -792,6 +797,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror 2.0.18",
+ "viontest",
 ]
 
 [[package]]
@@ -812,6 +818,15 @@ version = "0.1.0"
 dependencies = [
  "linkme",
  "viontin-framework",
+]
+
+[[package]]
+name = "viontin-macros"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]

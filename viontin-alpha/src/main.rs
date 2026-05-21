@@ -1,4 +1,5 @@
 use viontin::boot;
+use viontin_gem_tailwind::Tailwind;
 
 mod routes;
 mod models;
@@ -11,7 +12,7 @@ mod queries;
 
 fn main() {
     boot()
-        .gem(viontin_gem_tailwind::Gem)
+        .gem(Tailwind::load())
         .routes(routes::register)
         .command(commands::greet::Greet)
         .command(commands::greet::Calc)
