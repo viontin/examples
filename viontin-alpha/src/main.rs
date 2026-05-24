@@ -1,4 +1,5 @@
 use viontin::boot;
+use viontin::gem::GemBuilder;
 use viontin_gem_tailwind::Tailwind;
 
 mod routes;
