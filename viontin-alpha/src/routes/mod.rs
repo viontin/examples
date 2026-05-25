@@ -69,21 +69,18 @@ fn extract_form_field(body: &str, name: &str) -> Option<String> {
 }
 
 mod api {
-    use viontin::{Request, Response, StatusCode};
+    use viontin::{Request, Response};
 
     pub fn hello(_req: Request) -> Response {
-        match Response::json(&serde_json::json!({
+        Response::json(&serde_json::json!({
             "message": "Hello from Viontin!",
             "version": "0.1.0",
             "status": "ok"
-        })) {
-            Ok(r) => r,
-            Err(_) => Response::new(StatusCode::SERVER_ERROR).with_body("JSON error"),
-        }
+        }))
     }
 
     pub fn echo(req: Request) -> Response {
-        match Response::json(&serde_json::json!({
+        Response::json(&serde_json::json!({
             "method": "GET",
             "query": req.uri.query,
             "path": req.uri.path,
@@ -91,20 +88,14 @@ mod api {
                 "host": req.header("host").unwrap_or(""),
                 "user-agent": req.header("user-agent").unwrap_or(""),
             }
-        })) {
-            Ok(r) => r,
-            Err(_) => Response::new(StatusCode::SERVER_ERROR),
-        }
+        }))
     }
 
     pub fn echo_post(req: Request) -> Response {
-        match Response::json(&serde_json::json!({
+        Response::json(&serde_json::json!({
             "method": "POST",
             "body": req.body_str(),
             "content-type": req.header("content-type").unwrap_or(""),
-        })) {
-            Ok(r) => r,
-            Err(_) => Response::new(StatusCode::SERVER_ERROR),
-        }
+        }))
     }
 }
