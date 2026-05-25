@@ -1,4 +1,4 @@
-use viontin::fw::notif::{Notification, Notifiable};
+use viontin::fw::notification::{Notification, Notifiable};
 
 #[derive(Debug, Clone)]
 pub struct NewFollower {

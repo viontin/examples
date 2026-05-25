@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use viontin::boot;
 use viontin::gem::GemBuilder;
 use viontin_gem_tailwind::Tailwind;
