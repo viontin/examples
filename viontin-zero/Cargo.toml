@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 viontin = { path = "../../products/viontin/crates/viontin" }
+linkme = "0.3.36"

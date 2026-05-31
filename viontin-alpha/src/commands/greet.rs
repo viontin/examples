@@ -12,10 +12,10 @@ impl Command for Greet {
             Err(e) => { output.error(&e); return ExitCode::InvalidArgs; }
         };
 
-        let times = input.option::<u64>("times").and_then(|r| r.ok()).unwrap_or(1);
+        let times = input.option_or("times", 1u64);
 
         for _ in 0..times {
-            if input.flag("shout") {
+            if input.has_flag("shout") {
                 output.success(&format!("HELLO, {}!", name.to_uppercase()));
             } else {
                 output.success(&format!("Hello, {}!", name));
@@ -42,7 +42,7 @@ impl Command for Calc {
             Err(_) => { output.error("Invalid number: b"); return ExitCode::InvalidArgs; }
         };
 
-        let op = input.option::<String>("op").and_then(|r| r.ok()).unwrap_or_else(|| "add".into());
+        let op = input.option_or("op", "add".to_string());
 
         let result = match op.as_str() {
             "add" | "+" => a + b,

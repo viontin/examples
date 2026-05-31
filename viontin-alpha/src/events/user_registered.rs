@@ -1,4 +1,4 @@
-use viontin::fw::events::{Event, Subscribable, Subscriber};
+use viontin::fw::events::{Event, Listener, Subscriber, EventDispatcher};
 
 #[derive(Debug)]
 pub struct UserRegistered {
@@ -12,23 +12,16 @@ impl Event for UserRegistered {}
 pub struct UserEventSubscriber;
 
 impl Subscriber for UserEventSubscriber {
-    fn subscribe(&self, dispatcher: &mut dyn Subscribable) {
-        dispatcher.listen(
-            "viontin_alpha::events::user_registered::UserRegistered",
-            Box::new(UserRegisteredHandler),
-        );
+    fn subscribe(&self, dispatcher: &mut EventDispatcher) {
+        dispatcher.listen::<UserRegistered, UserRegisteredHandler>(UserRegisteredHandler);
     }
 }
 
 #[derive(Debug)]
 pub struct UserRegisteredHandler;
 
-impl viontin::fw::events::Listener for UserRegisteredHandler {
-    fn listens(&self) -> Vec<&'static str> {
-        vec!["viontin_alpha::events::user_registered::UserRegistered"]
-    }
-
-    fn handle(&self, _event: &dyn Event) {
-        println!("  [event] User registered — notification sent");
+impl Listener<UserRegistered> for UserRegisteredHandler {
+    fn handle(&self, event: &UserRegistered) {
+        println!("  [event] User registered — {} <{}>", event.name, event.email);
     }
 }

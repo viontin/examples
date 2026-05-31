@@ -12,7 +12,7 @@ impl Command for Greet {
             Err(e) => { output.error(&e); return ExitCode::InvalidArgs; }
         };
 
-        if input.flag("shout") {
+        if input.has_flag("shout") {
             output.success(&format!("HELLO, {}!", name.to_uppercase()));
         } else {
             output.success(&format!("Hello, {}!", name));

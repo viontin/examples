@@ -16,7 +16,6 @@ mod queries;
 fn main() {
     boot()
         .gem(Tailwind::load())
-        .routes(routes::register)
         .command(commands::greet::Greet)
         .command(commands::greet::Calc)
         .serve("127.0.0.1:3000");
